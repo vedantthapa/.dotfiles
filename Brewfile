@@ -1,8 +1,6 @@
 tap "derailed/k9s"
 tap "hashicorp/tap"
 tap "heroku/brew"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "romkatv/powerlevel10k"
 tap "jesseduffield/lazygit"
 brew "d2"
