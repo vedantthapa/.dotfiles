@@ -8,8 +8,12 @@ fi
 # exports
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export ZSH="/Users/vedant/.oh-my-zsh"
-export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR='lvim'
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+else
+    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
