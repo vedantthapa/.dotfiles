@@ -53,9 +53,13 @@ fi
 if [[ ! -d "$HOME/.local/share/lunarvim" ]]; then
     echo "Installing LunarVim..."
     LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+    export PATH=/home/cloud_user/.local/bin:$PATH
 else
     echo "LunarVim is already installed."
 fi
+
+# prevent stow conflicts
+rm -rf ~/.zshrc ~/.config/lvim
 
 # symlink configs using stow
 if command -v stow &>/dev/null; then
