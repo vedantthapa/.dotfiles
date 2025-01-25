@@ -5,6 +5,16 @@ set -euxo pipefail
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # add Homebrew to PATH based on the operating system
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        # macOS
+        export PATH="/opt/homebrew/bin:$PATH"  # Handles both Apple Silicon and Intel Macs
+    else
+        # Linux
+        export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+    fi
+
 else
     echo "Homebrew is already installed."
 fi
