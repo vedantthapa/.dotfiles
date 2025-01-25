@@ -7,7 +7,7 @@ fi
 
 # exports
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='lvim'
 if [[ "$(uname -s)" == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
