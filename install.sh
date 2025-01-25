@@ -27,15 +27,6 @@ else
     echo "Brewfile not found, skipping."
 fi
 
-# symlink configs using stow
-if command -v stow &>/dev/null; then
-    echo "Symlinking configuration files with stow..."
-    stow .
-else
-    echo "GNU Stow is not installed. Please install it and run the script again."
-    exit 1
-fi
-
 # add zsh as a login shell
 if ! grep -q "$(command -v zsh)" /etc/shells; then
     echo "Adding zsh to the list of login shells..."
@@ -64,6 +55,15 @@ if [[ ! -d "$HOME/.local/share/lunarvim" ]]; then
     LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 else
     echo "LunarVim is already installed."
+fi
+
+# symlink configs using stow
+if command -v stow &>/dev/null; then
+    echo "Symlinking configuration files with stow..."
+    stow .
+else
+    echo "GNU Stow is not installed. Please install it and run the script again."
+    exit 1
 fi
 
 # setup tmux plugins
