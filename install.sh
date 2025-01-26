@@ -49,6 +49,9 @@ else
     echo "Oh My Zsh is already installed."
 fi
 
+# install powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
 # install LunarVim
 if [[ ! -d "$HOME/.local/share/lunarvim" ]]; then
     echo "Installing LunarVim..."
@@ -74,7 +77,6 @@ fi
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
     echo "Installing tmux plugin manager (tpm)..."
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    tmux source ~/.tmux.conf
 else
     echo "tmux plugin manager (tpm) is already installed."
 fi
