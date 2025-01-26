@@ -24,7 +24,6 @@ fi
 echo "Adding Homebrew to PATH..."
 if [[ "$(uname -s)" == "Darwin" ]]; then
     # macOS
-
     export PATH="/opt/homebrew/bin:$PATH"
 else
     # Linux
@@ -48,6 +47,9 @@ if [[ ! -d "$HOME/.local/share/lunarvim" ]]; then
 else
     echo "LunarVim is already installed."
 fi
+
+# prevent stow conflicts
+rm -rf ~/.config/lvim/
 
 # symlink configs using stow
 if command -v stow &>/dev/null; then
