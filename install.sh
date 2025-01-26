@@ -4,7 +4,7 @@ set -euxo pipefail
 # install Homebrew
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
     # add Homebrew to PATH based on the operating system
     if [[ "$(uname -s)" == "Darwin" ]]; then
