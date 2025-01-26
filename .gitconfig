@@ -1,0 +1,7 @@
+[user]
+	name = vedantthapa
+	email = thapavedant@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = /usr/bin/vim
