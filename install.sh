@@ -24,10 +24,13 @@ fi
 echo "Adding Homebrew to PATH..."
 if [[ "$(uname -s)" == "Darwin" ]]; then
     # macOS
+
     export PATH="/opt/homebrew/bin:$PATH"
 else
     # Linux
-    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+    test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+    test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 fi
 
 # tap Homebrew Bundle and install from Brewfile
