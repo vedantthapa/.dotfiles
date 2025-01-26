@@ -1,5 +1,4 @@
 tap "romkatv/powerlevel10k"
-brew "d2"
 brew "figlet"
 brew "jq"
 brew "kube-ps1"
