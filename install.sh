@@ -4,19 +4,30 @@ set -euo pipefail
 # install Homebrew
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # add Homebrew to PATH based on the operating system
     if [[ "$(uname -s)" == "Darwin" ]]; then
         # macOS
-        export PATH="/opt/homebrew/bin:$PATH"  # Handles both Apple Silicon and Intel Macs
+        echo "Installing MacOS dependencies..."
+        xcode-select --install
     else
         # Linux
-        export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+        echo "Installing Linux dependencies..."
+        sudo apt-get update
+        sudo apt-get install build-essential procps curl file git
     fi
-
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
     echo "Homebrew is already installed."
+fi
+
+# add Homebrew to PATH based on the operating system
+echo "Adding Homebrew to PATH..."
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # macOS
+    export PATH="/opt/homebrew/bin:$PATH"
+else
+    # Linux
+    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
 
 # tap Homebrew Bundle and install from Brewfile
