@@ -7,13 +7,15 @@ fi
 
 # exports
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR='lvim'
 if [[ "$(uname -s)" == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
 else
     export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
+
+export EDITOR='lvim'
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
