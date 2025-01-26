@@ -15,7 +15,7 @@ if ! command -v brew &>/dev/null; then
         sudo apt-get update
         sudo apt-get install build-essential procps curl file git
     fi
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
     echo "Homebrew is already installed."
 fi
