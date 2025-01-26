@@ -12,8 +12,8 @@ if ! command -v brew &>/dev/null; then
     else
         # Linux
         echo "Installing Linux dependencies..."
-        sudo apt-get update
-        sudo apt-get install build-essential procps curl file git
+        sudo apt-get -y update
+        sudo apt-get -y install build-essential procps curl file git
     fi
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
