@@ -1,6 +1,6 @@
 # .dotfiles
 
-My zsh defaults for Mac / Linux
+Personal `zsh` defaults for Mac / Linux
 
 ## Setup
 
