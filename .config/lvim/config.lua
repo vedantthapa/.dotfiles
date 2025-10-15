@@ -16,6 +16,15 @@ lvim.plugins = {
  "mfussenegger/nvim-dap-python",
  "nvim-neotest/neotest",
  "nvim-neotest/neotest-python",
+  -- https://www.lunarvim.org/docs/configuration/plugins/example-configurations#vim-surround
+  {
+  "tpope/vim-surround",
+
+  -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
+  -- setup = function()
+    --  vim.o.timeoutlen = 500
+  -- end
+  },
 }
 
 -- https://betterprogramming.pub/lunarvim-debugging-testing-python-code-fa84f804c469
@@ -24,3 +33,10 @@ local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
 end)
+
+-- Telescope configurations
+lvim.builtin.which_key.mappings["f"] = {
+  name = "Find",
+  f = { "<cmd>Telescope find_files<cr>", "Find File" },
+  g = { "<cmd>Telescope live_grep<cr>",  "Live Grep" },
+}
