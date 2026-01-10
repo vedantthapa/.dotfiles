@@ -25,6 +25,10 @@ lvim.plugins = {
     --  vim.o.timeoutlen = 500
   -- end
   },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {},
+  },
 }
 
 -- https://betterprogramming.pub/lunarvim-debugging-testing-python-code-fa84f804c469
@@ -40,3 +44,4 @@ lvim.builtin.which_key.mappings["f"] = {
   f = { "<cmd>Telescope find_files<cr>", "Find File" },
   g = { "<cmd>Telescope live_grep<cr>",  "Live Grep" },
 }
+
